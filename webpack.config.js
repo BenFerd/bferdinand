@@ -66,6 +66,12 @@ Encore
         }
     })
 
+    .copyFiles({
+        from: './assets/img',
+        //only copy files matching this pattern
+        pattern: /\.(png|jpg|jpeg)$/
+    })
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 

@@ -3,5 +3,24 @@
 {% block title %}Hello there !{% endblock %}
 
 {% block body %}
+    <nav>
+        <a href="#" class="burger">Menu</a>
+        <a href="#" class="title"><h1>Benjamin Ferdinand</h1></a>
+        <a href="#" class="links">Links</a>
+    </nav>
 
+    <aside class="side-content">
+        <section>
+            <ul>
+                <li><a href="#">Menu link 1</a></li>
+                <li><a href="#">Menu link 2</a></li>
+                <li><a href="#">Menu link 3</a></li>
+            </ul>
+        </section>
+    </aside>
+    <main class="main-content">
+        <section>
+            <img src="{{ asset('build/web-3963945_1920.ae13ad63.jpeg') }}" alt="dev">
+        </section>
+    </main>
 {% endblock %}
