@@ -1,0 +1,10 @@
+//add all the css files that need to be compile
+
+//bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+//atoms
+@import "atoms/custom";
+
+//molecule
+@import "molecule/navbar";
