@@ -1,0 +1,97 @@
+//sccs for the sliding menu
+
+$widthSideMenu: 300px;
+$headerGutter: 60px;
+$transitionDuration: 700ms;
+
+.side-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: $widthSideMenu;
+  animation: transform 700ms ease-out;
+  z-index: -1;
+
+  ul {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(calc(-50% - 3em));
+
+    li {
+      font-size: 2em;
+      color: white;
+      margin-bottom: .3em;
+      font-weight: 500;
+      overflow: hidden;
+
+      a {
+        display: block;
+        transform: translate3d(0, 100%, 0);
+        transition: transform 400ms ease-out;
+      }
+    }
+
+    li:nth-child(1) {
+      a {
+        transition-delay: $transitionDuration;
+      }
+    }
+    li:nth-child(2) {
+      a {
+        transition-delay: $transitionDuration + 200ms;
+      }
+    }
+    li:nth-child(3) {
+      a {
+        transition-delay: $transitionDuration + 400ms;
+      }
+    }
+  }
+}
+
+.main-content {
+  width: 100%;
+  background: white;
+  overflow: auto;
+  padding: $headerGutter;
+  transition: transform 700ms ease-out, border-radius 700ms ease-out;
+  height: 300vh;
+
+  img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+  }
+  section {
+    margin-bottom: 24px;
+  }
+}
+
+body.menu-open {
+  .side-content {
+    z-index: 1;
+    ul li a {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .main-content {
+    transform: translate3d($widthSideMenu, $headerGutter, 0);
+    border-radius: 10px;
+  }
+}
+
+// hover effect menu links
+
+.menu--link {
+  background-image: linear-gradient(120deg, #ac8146 0%, #d54b4b 100%);
+  background-repeat: no-repeat;
+  background-size: 50% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 500ms ease-in !important;
+
+  &:hover {
+    background-size: 100% 88%;
+  }
+}

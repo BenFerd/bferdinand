@@ -4,23 +4,30 @@
 
 {% block body %}
     <nav>
-        <a href="#" class="burger">Menu</a>
-        <a href="#" class="title"><h1>Benjamin Ferdinand</h1></a>
-        <a href="#" class="links">Links</a>
+        <div class="burger">
+            <span class="bar bar--1"></span>
+            <span class="bar bar--2"></span>
+        </div>
+        <div class="title"><h1>Benjamin Ferdinand</h1></div>
+        <div class="links">
+            <a href="mailto:b.ferdinand.dev@gmail.com" class="gmail"><i class="bi bi-google" alt="gmail logo"></i></a>
+            <a href="https://www.linkedin.com/in/benjamin-ferdinand-945a40158/" class="linkedin"><i class="bi bi-linkedin" alt="linkedin logo"></i></a>
+            <a href="https://github.com/BenFerd" class="github"><i class="bi bi-github" alt="github logo"></i></a>
+        </div>
     </nav>
 
     <aside class="side-content">
         <section>
             <ul>
-                <li><a href="#">Menu link 1</a></li>
-                <li><a href="#">Menu link 2</a></li>
-                <li><a href="#">Menu link 3</a></li>
+                <li><a class="menu--link" href="#">Menu link 1</a></li>
+                <li><a class="menu--link" href="#">A propos</a></li>
+                <li><a class="menu--link" href="#">Contact</a></li>
             </ul>
         </section>
     </aside>
     <main class="main-content">
         <section>
-            <img src="{{ asset('build/web-3963945_1920.ae13ad63.jpeg') }}" alt="dev">
+            <img src="{{ asset('build/building.jpeg') }}" alt="dev">
         </section>
     </main>
 {% endblock %}

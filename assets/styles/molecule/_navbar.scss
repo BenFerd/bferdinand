@@ -1,5 +1,6 @@
 $widthSideMenu: 300px;
 $headerGutter: 60px;
+$transitionDuration: 700ms;
 
 body {
   background: black;
@@ -18,75 +19,81 @@ nav {
   mix-blend-mode: exclusion;
   color: white;
 
-  a {
-    color: white;
-    &:hover,
-    &:active,
-    &:link {
-      color: $light;
-    }
-  }
-
   .burger {
     cursor: pointer;
   }
-  .title {
 
-  }
-}
-
-.side-content {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: $widthSideMenu;
-  //transform: translate3d(-100%, 0, 0);
-  animation: transform 700ms ease-out;
-  z-index: -1;
-
-  ul {
-    position: absolute;
-    top: 50%;
-    left: 60px;
-    transform: translateY(calc(-50% - 3em));
-
-    li {
-      font-size: 2em;
-      color: white;
-      margin-bottom: .3em;
+  .links {
+    display: flex;
+    justify-content: center;
+    a {
+      margin-right: 20px;
     }
   }
 }
 
-.main-content {
-  //position: fixed;
-  //top: 0;
-  //bottom: 0;
-  width: 100%;
-  background: white;
-  overflow: auto;
-  padding: $headerGutter;
-  transition: transform 700ms ease-out, border-radius 700ms ease-out;
-  height: 300vh;
+//animetion burger
 
-  img {
-    border-radius: 10px;
-  }
-  section {
-    margin-bottom: 24px;
-  }
-}
+.burger {
+  $size: 50px;
+  height: $size;
+  width: $size;
+  top: 25px;
+  position: relative;
 
-body.menu-open {
-  .side-content {
-    //transform: translate3d(0, 0, 0);
-    z-index: 1;
+  $offsetY: 7px;
+
+  .bar {
+    position: absolute;
+    left: 0;
+
+
+    width: 100%;
+    height: 3px;
+    background: white;
+    transition: transform 1s ease;
+
+    &.bar--1 {
+      transform: translate3d(0, -$offsetY, 0);
+    }
+
+    &.bar--2 {
+      transform: translate3d(0, $offsetY, 0);
+    }
   }
 
-  nav {
+  &:hover {
+    .bar--1 {
+      transform: translate3d(0, -$offsetY, 0) rotate(-180deg);
+    }
+
+    .bar--2 {
+      transform: translate3d(0, $offsetY, 0) rotate(-180deg);
+    }
+
+    &.active {
+
+      .bar--1 {
+        transform: translate3d(0, calc(2 * #{$offsetY}), 0) rotate(-495deg);
+      }
+
+      .bar--2 {
+        transform: translate3d(0, calc(2 * #{$offsetY}), 0) rotate(-45deg);
+      }
+    }
   }
-  .main-content {
-    transform: translate3d($widthSideMenu, $headerGutter, 0);
-    border-radius: 10px;
+
+  &.active {
+    .bar {
+      transition: transform 600ms ease;
+    }
+
+    .bar--1 {
+      transform: translate3d(0, calc(2 * #{$offsetY}), 0) rotate(-675deg);
+    }
+
+    .bar--2 {
+      transform: translate3d(0, calc(2 * #{$offsetY}), 0) rotate(-225deg);
+    }
   }
 }
