@@ -35,16 +35,19 @@ $transitionDuration: 700ms;
     li:nth-child(1) {
       a {
         transition-delay: $transitionDuration;
+        transition-property: transform;
       }
     }
     li:nth-child(2) {
       a {
         transition-delay: $transitionDuration + 200ms;
+        transition-property: transform;
       }
     }
     li:nth-child(3) {
       a {
         transition-delay: $transitionDuration + 400ms;
+        transition-property: transform;
       }
     }
   }
@@ -89,9 +92,8 @@ body.menu-open {
   background-repeat: no-repeat;
   background-size: 50% 0.2em;
   background-position: 0 88%;
-  transition: background-size 500ms ease-in !important;
 
   &:hover {
-    background-size: 100% 88%;
+    background-size: 100% 0.2em;
   }
 }
