@@ -1,9 +1,11 @@
 //sccs for the sliding menu
+//including the main content sliding on the left on each page
 
 $widthSideMenu: 300px;
 $headerGutter: 60px;
 $transitionDuration: 700ms;
 
+//div on the left with the menu links
 .side-content {
   position: fixed;
   top: 0;
@@ -53,11 +55,12 @@ $transitionDuration: 700ms;
   }
 }
 
+//div sliding when the menu appear
 .main-content {
   width: 100%;
   background: white;
   overflow: auto;
-  padding: $headerGutter;
+  padding: ($headerGutter +10)  $headerGutter;
   transition: transform 700ms ease-out, border-radius 700ms ease-out;
   height: 300vh;
 

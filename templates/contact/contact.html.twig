@@ -3,12 +3,53 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <main class="main-content">
-        <section>
-
+    <main class="main-content" id="main-content-contact">
+        <section class="contact-header">
+            <div id='map'></div>
         </section>
-        <section class="contact--form">
+        <section class="contact-form">
+            <aside class="aside-contact">
+                <h2>Contact</h2>
+                <ul>
+                    <li><i class="bi bi-phone" aria-label="téléphone"></i><strong> Tél </strong>: 0412.34.56.78</li>
+                    <li><i class="bi bi-envelope" aria-label="email"></i><strong> Email </strong>: <a href="mailto:info@bferdinand.be">info@bferdinand.be</a></li>
+                    <li><i class="bi bi-bank" aria-label="numéro tva"></i><strong> TVA </strong>: BE123546684532</li>
+                    <li><i class="bi bi-geo" aria-label="géolocalisation"></i> Situé dans la région de Charleroi</li>
+                </ul>
+            </aside>
+            <div class="container">
+                <form class="row g-3">
 
+                    {{ form_start(form) }}
+
+                    {{ form_errors(form) }}
+
+                    <div class="col-md-6">
+                        {{ form_label(form.firstName, 'Prénom', {'label_attr': {'class': 'form-label' }}) }}
+                        {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_label(form.lastName, 'Nom', {'label_attr': {'class': 'form-label' }}) }}
+                        {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-12">
+                        {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-label' }}) }}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-12">
+                        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label' }}) }}
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" id="submit" type="submit">
+                            Envoyer <i class="bi bi-forward-fill"></i>
+                        </button>
+                    </div>
+
+                    {{ form_end(form) }}
+
+                </form>
+            </div>
         </section>
     </main>
 {% endblock %}
